@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myFlayApp">
+	<head>
+		<title>Search hundreds of travel sites at once</title>
+		<link href="content/css/styles.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="app\lib\angular.min.js"></script>
+		<script src="app\app.js"></script>
+	</head>
+	
+	<body>
+		<!--Title-->
+		<h1>Search hundreds of travel sites at once</h1>
+		
+		<div ng-controller="flightCtrl">
+			<form>
+				<!--Selectors obtions
+				Flight type selector.
+				Passengers selector.
+				Travel Class.-->
+				<div>
+					<select>
+						<option ng-repeat="flight in flights" value="{{flight}}">{{flight}}</option>
+					</select>
+					<select>
+						<option ng-repeat="passenger in passengers" value="{{passenger}}">{{passenger}}</option>
+					</select>
+					<select>
+						<option ng-repeat="travel in travels" value="{{travel}}">{{travel}}</option>
+					</select>
+				</div>
+				<br>
+				<!--Selectors obtions
+				Origin Selector.
+				Destination Selector.
+				Departure Date selector.
+				Return Flight selector.
+				-->
+				<div>
+					<i class="fa fa-plane"></i><input type="text" name="From?" placeholder="From?" ng-model="fly.from">
+					<button ng-click="switchFromTo()"><i class="fa fa-exchange"></i></button>
+					<i class="fa fa-plane"></i><input type="text" name="To?" placeholder="To?" ng-model="fly.to">
+					<i class="fa fa-calendar"></i><input id="dateGo" type="date" ng-model="fly.dateGo">
+					<i class="fa fa-calendar"></i><input id="dateComeBag" type="date" ng-model="fly.dateComeBag">
+					<button ng-click="searchFly()"><i class="fa fa-search"></i></button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
